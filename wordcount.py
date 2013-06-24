@@ -1,5 +1,6 @@
 from sys import argv
 import string
+import re
 
 script, filename = argv
 
@@ -9,9 +10,12 @@ filetext = txt.read()
 txt.close()
 
 filetext = filetext.lower()
-filetext.strip([33])
+
+filetext = re.sub("[. ? !]" , " ", filetext)
+
 # for c in string.punctuation:
 #     filetext = filetext.replace (c, "")
+
 word_array = filetext.split()
 
 dictionary = {}
